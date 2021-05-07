@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "538276694161",
+    "project_id": "unity-localsns",
+    "storage_bucket": "unity-localsns.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:538276694161:android:f54abec8e36647b4b25730",
+        "android_client_info": {
+          "package_name": "hoon.ar.localsns"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "538276694161-r5ecrmp5tq8i0avm4sclajol7e7tau23.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7wkUcK6T_swQPpT1NB7FxS8gs0hBMdW0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "538276694161-r5ecrmp5tq8i0avm4sclajol7e7tau23.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
