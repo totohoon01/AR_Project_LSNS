@@ -10,7 +10,12 @@ public class MainSceneManeger : MonoBehaviour
     public TMP_InputField userPWInput;
     public TMP_Text aletText;
 
-    //유저 정보를 저장할 변수 -> 싱글톤으로 구성해야함 별도의 오브젝트 및 스크립트에.
+    //for easy test
+    void Start()
+    {
+        userNameInput.text = "hoon";
+        userPWInput.text = "1234";
+    }
 
     public void OnStartButtonClick()
     {
@@ -18,7 +23,7 @@ public class MainSceneManeger : MonoBehaviour
         ///Start 버튼을 눌렀을때, 사용자의 이름과 패스워드를 싱글턴 오브젝트에 전달한다.
         ///만약 두 인풋필드 중 하나라도 비어있을 경우 에러메시지를 띄운다.
         ///</summary>
-        if (userNameInput.text != null && userPWInput.text != null)
+        if (!string.IsNullOrEmpty(userNameInput.text) && !string.IsNullOrEmpty(userPWInput.text))
         {
             GameManager.instance.userName = userNameInput.text;
             GameManager.instance.userPW = userPWInput.text;
