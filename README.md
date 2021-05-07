@@ -36,5 +36,22 @@
 - [x] 순서도 작성
 - [x] UI
 - [ ] UI 로직
+- [ ] 기본 로직
 - [ ] DataBase
 - [ ] ?
+
+## Makes
+
+### MainScene
+- [ ]
+
+### PlayScene
+- [ ]
+
+### OldPostScene
+- [ ]
+
+### NewPostScene
+- [ ]
+
+
