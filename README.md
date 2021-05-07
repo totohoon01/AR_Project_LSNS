@@ -31,27 +31,33 @@
 ### ❓ Check How to
 - 데이터 베이스 사용방법
 
-### ✔ 진행 사항(To do) 
-- [x] 프로젝트 생성
-- [x] 순서도 작성
-- [x] UI
-- [ ] UI 로직
-- [ ] 기본 로직
-- [ ] DataBase
-- [ ] ?
-
-## Makes
+## ✔ 진행 사항(To do) 
 
 ### MainScene
-- [ ]
+- [ ] 입력값(ID, PW) 저장할 변수 -> 스태틱으로 올려야함
+- [ ] Start 버튼을 눌렀을때 Play씬 로딩,
+- [ ] 예쁜 디자인 - 배경, 버튼, 인풋필드
 
 ### PlayScene
-- [ ]
+- [ ] AR씬(파운데이션 적용)
+- [ ] GPS 값 받아서 주변에 기존 포스트 표시
+- [ ] 기존 포스트 클릭하면 Old씬 로딩
+- [ ] 뉴 포스트 클릭하면 new씬 로딩
+- [ ] 디자인 - 포스트 버튼
 
 ### OldPostScene
-- [ ]
+- [ ] DB에서 내용 불러오기(작성자, 작성시간-간단히-, 내용)
+- [ ] 'Modifiy' if(curUser == authorUser) this.update(content, time)
+- [ ] 'Hide' curUser.hide(this)
+- [ ] 'Delete' if(curUser == authorUser) this.delete()
+- [ ] 디자인 - 버튼, 컨텐츠 창
 
 ### NewPostScene
-- [ ]
+- [ ] 'Post' - 컨텐츠 작성해 DB로 올리기(작성자, 작성시간, 내용)
+- [ ] 'Cancel' load(PlayScene)
+- [ ] 디자인 - 버튼 
 
 
+### Else
+- [ ] Database
+- [ ] ?
