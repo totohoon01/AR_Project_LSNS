@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using Firebase;
+using Firebase.Database;
 
 public class MainSceneManeger : MonoBehaviour
 {
@@ -27,6 +29,11 @@ public class MainSceneManeger : MonoBehaviour
         {
             GameManager.instance.userName = userNameInput.text;
             GameManager.instance.userPW = userPWInput.text;
+
+            //데이터 베이스에 쓰기
+            string userIdentifier = GameManager.instance.userName + GameManager.instance.userPW;
+            DatabaseReference mRef = FirebaseDatabase.DefaultInstance.RootReference; //루트
+            mRef.Child("users").SetValueAsync(userIdentifier); //유저 등록
             SceneManager.LoadScene("02.PlayScene");
         }
         else

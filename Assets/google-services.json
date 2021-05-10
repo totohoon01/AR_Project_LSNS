@@ -1,13 +1,14 @@
 {
   "project_info": {
     "project_number": "538276694161",
+    "firebase_url": "https://unity-localsns-default-rtdb.firebaseio.com",
     "project_id": "unity-localsns",
     "storage_bucket": "unity-localsns.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:538276694161:android:f54abec8e36647b4b25730",
+        "mobilesdk_app_id": "1:538276694161:android:45e9ec21b0abdc31b25730",
         "android_client_info": {
           "package_name": "hoon.ar.localsns"
         }
