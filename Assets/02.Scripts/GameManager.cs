@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance = null;
     public string userName;
     public string userPW;
+    public string userIdentifier;
 
     void Awake()
     {
