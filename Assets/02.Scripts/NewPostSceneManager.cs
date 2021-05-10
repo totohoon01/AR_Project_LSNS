@@ -18,14 +18,19 @@ public class NewPostSceneManager : MonoBehaviour
         //포스트 데이터
         string createTime = System.DateTime.Now.ToString("yyyy년 MM월 dd일 HH시 작성");
         string message = messageBox.text;
-        string userPos = "10010010 / temp";
-        UserPost post = new UserPost(message, createTime, userPos);
-        //to JSON
-        string json = JsonUtility.ToJson(post);
+        string userPos = "10010010 / temp"; //이거는 나중에 수정해야함. 
 
         //데이터 베이스에 연결
         DatabaseReference mRef = FirebaseDatabase.DefaultInstance.RootReference;
-        mRef.Child("users").Child(GameManager.instance.userIdentifier).Child("post0").SetRawJsonValueAsync(json);
+        string postKey = mRef.Push().Key;
+
+        Dictionary<string, object> update = new Dictionary<string, object>();
+        string path = "users/" + GameManager.instance.userIdentifier + "/" + postKey + "/";
+        update[path + "createTime"] = createTime;
+        update[path + "message"] = message;
+        update[path + "userPos"] = userPos;
+        mRef.UpdateChildrenAsync(update);
+
     }
 
     public void OnCancelButtonClick()

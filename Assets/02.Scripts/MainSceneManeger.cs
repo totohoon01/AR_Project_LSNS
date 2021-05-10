@@ -32,8 +32,8 @@ public class MainSceneManeger : MonoBehaviour
 
             //데이터 베이스에 쓰기
             GameManager.instance.userIdentifier = GameManager.instance.userName + GameManager.instance.userPW;
-            DatabaseReference mRef = FirebaseDatabase.DefaultInstance.RootReference; //루트
-            mRef.Child("users").SetValueAsync(GameManager.instance.userIdentifier); //.SetValueAsync(null); //유저 등록
+
+            //다음 씬 로딩
             SceneManager.LoadScene("02.PlayScene");
         }
         else
