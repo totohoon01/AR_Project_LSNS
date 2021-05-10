@@ -14,8 +14,8 @@ public class MainSceneManeger : MonoBehaviour
 
     void Start()
     {
-        userNameInput.text = "hoon";
-        userPWInput.text = "1234";
+        // userNameInput.text = "hoon";
+        // userPWInput.text = "1234";
 
         //AR카메라 온오프 이벤트(메인씬에서만)
         toggle = GameObject.FindGameObjectWithTag("TOGGLE").GetComponent<Toggle>();
