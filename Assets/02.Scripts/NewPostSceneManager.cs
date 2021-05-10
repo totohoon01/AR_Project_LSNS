@@ -2,9 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using Firebase;
 using Firebase.Database;
-using Post;
 using UnityEngine.SceneManagement;
 
 public class NewPostSceneManager : MonoBehaviour
