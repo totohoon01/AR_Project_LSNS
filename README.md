@@ -29,7 +29,7 @@
         ![새로운 포스트](./myResources/newPost.PNG)
 
 ### ❓ Check How to
-- 데이터 베이스 사용방법
+- Cloud Anchor
 
 ## ✔ 진행 사항(To do) 
 
@@ -53,11 +53,11 @@
 - [ ] 디자인 - 버튼, 컨텐츠 창
 
 ### NewPostScene
-- [ ] 'Post' - 컨텐츠 작성해 DB로 올리기(작성자, 작성시간, 내용)
-- [ ] 'Cancel' load(PlayScene)
+- [x] 'Post' - 컨텐츠 작성해 DB로 올리기(작성자, 작성시간, 내용)
+- [x] 'Cancel' load(PlayScene)
 - [ ] 디자인 - 버튼 
 
 
 ### Else
-- [ ] Database
+- [x] Database
 - [ ] ?
