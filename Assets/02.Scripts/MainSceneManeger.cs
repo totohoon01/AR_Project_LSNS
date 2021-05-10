@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 
@@ -9,8 +10,8 @@ public class MainSceneManeger : MonoBehaviour
     public TMP_InputField userNameInput;
     public TMP_InputField userPWInput;
     public TMP_Text aletText;
+    private Toggle toggle;
 
-    //for easy test
     void Start()
     {
         userNameInput.text = "hoon";
@@ -43,5 +44,37 @@ public class MainSceneManeger : MonoBehaviour
     void OffAlret()
     {
         aletText.GetComponent<TMP_Text>().enabled = false;
+    }
+
+    public void OnLoginButtonClick()
+    {
+        //버튼 비활성화
+        GameObject[] objs = GameObject.FindGameObjectsWithTag("ST_BTN");
+        foreach (var obj in objs)
+        {
+            if (obj.GetComponent<Image>() != null)
+                obj.GetComponent<Image>().enabled = false;
+            if (obj.GetComponent<Button>() != null)
+                obj.GetComponent<Button>().enabled = false;
+        }
+
+        //UI 활성화
+        objs = GameObject.FindGameObjectsWithTag("ST_BTN_INTER");
+        foreach (var obj in objs)
+        {
+            if (obj.GetComponent<TMP_Text>() != null)
+                obj.GetComponent<TMP_Text>().enabled = true;
+            if (obj.GetComponent<TMP_InputField>() != null)
+                obj.GetComponent<TMP_InputField>().enabled = true;
+            if (obj.GetComponent<Image>() != null)
+                obj.GetComponent<Image>().enabled = true;
+
+            //토글 이벤트
+            toggle = GameObject.FindGameObjectWithTag("toggle").GetComponent<Toggle>();
+            if (toggle.isOn)
+            {
+                //카메라 활성화
+            }
+        }
     }
 }

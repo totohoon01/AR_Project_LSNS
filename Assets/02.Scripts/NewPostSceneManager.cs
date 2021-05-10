@@ -28,7 +28,7 @@ public class NewPostSceneManager : MonoBehaviour
         update[path + "message"] = message;
         update[path + "userPos"] = userPos;
         mRef.UpdateChildrenAsync(update);
-
+        SceneManager.LoadScene("02.PlayScene");
     }
 
     public void OnCancelButtonClick()

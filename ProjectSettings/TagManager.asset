@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - ST_BTN_INTER
+  - ST_BTN
   layers:
   - Default
   - TransparentFX
