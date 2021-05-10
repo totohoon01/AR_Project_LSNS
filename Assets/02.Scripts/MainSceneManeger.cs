@@ -16,6 +16,15 @@ public class MainSceneManeger : MonoBehaviour
     {
         userNameInput.text = "hoon";
         userPWInput.text = "1234";
+
+        //AR카메라 온오프 이벤트(메인씬에서만)
+        toggle = GameObject.FindGameObjectWithTag("TOGGLE").GetComponent<Toggle>();
+        toggle.onValueChanged.AddListener(
+            (bool isCamOn) =>
+            {
+                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>().enabled = isCamOn;
+            }
+        );
     }
 
     public void OnStartButtonClick()
@@ -33,6 +42,7 @@ public class MainSceneManeger : MonoBehaviour
             GameManager.instance.userIdentifier = GameManager.instance.userName + GameManager.instance.userPW;
 
             //다음 씬 로딩
+            GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>().enabled = true;
             SceneManager.LoadScene("02.PlayScene");
         }
         else
@@ -68,13 +78,6 @@ public class MainSceneManeger : MonoBehaviour
                 obj.GetComponent<TMP_InputField>().enabled = true;
             if (obj.GetComponent<Image>() != null)
                 obj.GetComponent<Image>().enabled = true;
-
-        }
-        //if toggle.isOn => Turn AR Camera On.
-        toggle = GameObject.FindGameObjectWithTag("TOGGLE").GetComponent<Toggle>();
-        if (toggle.isOn)
-        {
-            print("1123");
         }
     }
 }
