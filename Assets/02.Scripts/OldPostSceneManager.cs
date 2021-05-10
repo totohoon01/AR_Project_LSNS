@@ -31,6 +31,9 @@ public class OldPostSceneManager : MonoBehaviour
     public void OnHideButtonClick()
     {
         //현재 사용자 != 작성자 -> 해쉬값을 받아서 해당 포스트 혹은 해당 사용자 블록
+        //해쉬 값을 받아서, 특정 사용자에게 블록
+        //if curUser in post.hideTo()
+        //  not Generate this
     }
 
     public void OnDeleteButtonClick()

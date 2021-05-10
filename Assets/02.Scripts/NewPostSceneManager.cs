@@ -23,7 +23,8 @@ public class NewPostSceneManager : MonoBehaviour
         string postKey = mRef.Push().Key;
 
         Dictionary<string, object> update = new Dictionary<string, object>();
-        string path = "users/" + GameManager.instance.userIdentifier + "/" + postKey + "/";
+        string path = postKey + "/";
+        update[path + "id"] = GameManager.instance.userIdentifier;
         update[path + "createTime"] = createTime;
         update[path + "message"] = message;
         update[path + "userPos"] = userPos;
