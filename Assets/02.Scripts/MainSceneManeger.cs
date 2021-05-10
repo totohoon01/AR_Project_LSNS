@@ -69,12 +69,12 @@ public class MainSceneManeger : MonoBehaviour
             if (obj.GetComponent<Image>() != null)
                 obj.GetComponent<Image>().enabled = true;
 
-            //토글 이벤트
-            toggle = GameObject.FindGameObjectWithTag("toggle").GetComponent<Toggle>();
-            if (toggle.isOn)
-            {
-                //카메라 활성화
-            }
+        }
+        //if toggle.isOn => Turn AR Camera On.
+        toggle = GameObject.FindGameObjectWithTag("TOGGLE").GetComponent<Toggle>();
+        if (toggle.isOn)
+        {
+            print("1123");
         }
     }
 }

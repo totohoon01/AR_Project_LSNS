@@ -6,6 +6,7 @@ TagManager:
   tags:
   - ST_BTN_INTER
   - ST_BTN
+  - TOGGLE
   layers:
   - Default
   - TransparentFX
