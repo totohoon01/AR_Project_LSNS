@@ -26,4 +26,8 @@ public class PlaySceneManager : MonoBehaviour
     {
         SceneManager.LoadScene("04.NewPostScene");
     }
+    public void OnLogOutButtonClick()
+    {
+        SceneManager.LoadScene("01.MainScene");
+    }
 }

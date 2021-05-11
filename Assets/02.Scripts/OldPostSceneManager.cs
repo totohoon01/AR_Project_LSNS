@@ -15,20 +15,22 @@ public class OldPostSceneManager : MonoBehaviour
     public TMP_Text postAuthor;
     public TMP_Text createTime;
     public TMP_Text postContent;
+    public TMP_Text textAlret;
 
     private DatabaseReference mRef;
 
-    private string hashCode = "-M_Oj1mN52AA5ZOrqbUq";
+    private string hashCode = "-M_PSQIRuHI3mw9vU6w-";
 
     void Awake()
     {
         mRef = FirebaseDatabase.DefaultInstance.RootReference;
-        //특정한 해쉬를 가진?? 데이터 로드
     }
     void Start()
     {
+        //특정한 해쉬를 가진?? 데이터 로드
         ReadContents(hashCode);
     }
+
     void ReadContents(string hashCode)
     {
         mRef.GetValueAsync().ContinueWith(task =>
@@ -43,7 +45,7 @@ public class OldPostSceneManager : MonoBehaviour
                         //유니티에서는 안되는데 빌드하면 됨
                         //약간 불러오는 딜레이있는듯. 최종본에 디폴트 제거, 한글처리
                         IDictionary postData = (IDictionary)data.Value;
-                        postAuthor.text = postData["id"].ToString();
+                        postAuthor.text = $"Author: {postData["id"].ToString()}";
                         createTime.text = postData["createTime"].ToString();
                         postContent.text = postData["message"].ToString();
                         break;
@@ -52,17 +54,28 @@ public class OldPostSceneManager : MonoBehaviour
             }
         });
     }
+
     public void OnDeleteButtonClick()
     {
         DeletePost(hashCode);
     }
+    //유저 확인 로직 추가 ㅓㅓㅓㅓ
     void DeletePost(string hashCode)
     {
         if (GameManager.instance.userIdentifier == postAuthor.text)
         {
             mRef.Child(hashCode).RemoveValueAsync();
+            SceneManager.LoadScene("02.PlayScene");
         }
-        SceneManager.LoadScene("02.PlayScene");
+        else
+        {
+            textAlret.enabled = true;
+            Invoke("OffAlret", 2.0f);
+        }
+    }
+    void OffAlret()
+    {
+        textAlret.enabled = false;
     }
 
     public void OnCancelButtonClick()
