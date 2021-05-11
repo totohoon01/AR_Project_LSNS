@@ -7,6 +7,7 @@ TagManager:
   - ST_BTN_INTER
   - ST_BTN
   - TOGGLE
+  - DESTROY
   layers:
   - Default
   - TransparentFX

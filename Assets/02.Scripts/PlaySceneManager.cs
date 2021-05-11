@@ -28,6 +28,11 @@ public class PlaySceneManager : MonoBehaviour
     }
     public void OnLogOutButtonClick()
     {
+        var objs = GameObject.FindGameObjectsWithTag("DESTROY");
+        foreach (var obj in objs)
+        {
+            Destroy(obj);
+        }
         SceneManager.LoadScene("01.MainScene");
     }
 }
