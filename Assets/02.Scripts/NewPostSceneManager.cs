@@ -14,9 +14,9 @@ public class NewPostSceneManager : MonoBehaviour
     public void OnPostButtonClick()
     {
         //포스트 데이터
-        string createTime = System.DateTime.Now.ToString("yyyy년 MM월 dd일 HH시 작성");
+        string createTime = System.DateTime.Now.ToString("yyyy/MM/dd");
         string message = messageBox.text;
-        string userPos = "10010010 / temp"; //이거는 나중에 수정해야함. 
+        string userPos = $"{GameManager.instance.logitude},{GameManager.instance.latitude}";
 
         //데이터 베이스에 연결
         DatabaseReference mRef = FirebaseDatabase.DefaultInstance.RootReference;
