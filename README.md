@@ -42,10 +42,10 @@
 - [ ] GPS 값 받아서 주변에 기존 포스트 표시
 
 ### OldPostScene
-- [ ] DB에서 내용 불러오기(작성자, 작성시간-간단히-, 내용)
-- [ ] 'Modifiy' if(curUser == authorUser) this.update(content, time)
-- [ ] 'Hide' curUser.hide(this)
-- [ ] 'Delete' if(curUser == authorUser) this.delete()
+- [x] DB에서 내용 불러오기(작성자, 작성시간-간단히-, 내용)
+- [x] 'Delete' if(curUser == authorUser) this.delete()
+~~- [ ] 'Modifiy' if(curUser == authorUser) this.update(content, time)~~
+~~- [ ] 'Hide' curUser.hide(this)~~
 
 ### NewPostScene
 
