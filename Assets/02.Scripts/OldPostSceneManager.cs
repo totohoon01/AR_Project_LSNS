@@ -19,7 +19,7 @@ public class OldPostSceneManager : MonoBehaviour
 
     private DatabaseReference mRef;
 
-    private string hashCode = "-M_PSQIRuHI3mw9vU6w-";
+    private string hashCode = "--M_PfLP-3xRLOJ4iE0hd";
 
     void Awake()
     {
@@ -45,7 +45,7 @@ public class OldPostSceneManager : MonoBehaviour
                         //유니티에서는 안되는데 빌드하면 됨
                         //약간 불러오는 딜레이있는듯. 최종본에 디폴트 제거, 한글처리
                         IDictionary postData = (IDictionary)data.Value;
-                        postAuthor.text = $"Author: {postData["id"].ToString()}";
+                        postAuthor.text = $"Author: {postData["userName"].ToString()}";
                         createTime.text = postData["createTime"].ToString();
                         postContent.text = postData["message"].ToString();
                         break;
