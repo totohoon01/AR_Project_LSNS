@@ -33,36 +33,22 @@
 
 
 ## ✔ 진행 사항(To do) 
+- [ ] 디자인
 
 ### MainScene
-- [x] 입력값(ID, PW) 저장할 변수 -> 스태틱으로 올려야함
-- [x] Start 버튼을 눌렀을때 Play씬 로딩,
-- [x] 예쁜 디자인 - 배경, 버튼, 인풋필드
 
 ### PlayScene
-- [x] AR씬(파운데이션 적용)
+- [ ] Cloud Anchor 연결, anchor + gps로 id구분
 - [ ] GPS 값 받아서 주변에 기존 포스트 표시
-- [x] 기존 포스트 클릭하면 Old씬 로딩
-- [x] 뉴 포스트 클릭하면 new씬 로딩
-- [x] 디자인 - 포스트 버튼
 
 ### OldPostScene
 - [ ] DB에서 내용 불러오기(작성자, 작성시간-간단히-, 내용)
 - [ ] 'Modifiy' if(curUser == authorUser) this.update(content, time)
 - [ ] 'Hide' curUser.hide(this)
 - [ ] 'Delete' if(curUser == authorUser) this.delete()
-- [ ] 디자인 - 버튼, 컨텐츠 창
 
 ### NewPostScene
-- [x] 'Post' - 컨텐츠 작성해 DB로 올리기(작성자, 작성시간, 내용)
-- [x] 'Cancel' load(PlayScene)
-- [ ] 디자인 - 버튼 
-
 
 ### Else
-- [x] Database
-- [ ] ?
-
-
-메인씬 -> 후면 카메라에 반투명 흰색 배경
-버튼
+- [ ] Extras(ripple🐳 / Like👍)
+- [ ] Cloud Anchor
