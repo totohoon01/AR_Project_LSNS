@@ -24,6 +24,7 @@ public class PlaySceneManager : MonoBehaviour
 
         //현재 사용자 표시
         userName.text = $"Name: {GameManager.instance.userName}";
+        OnRefreshButtonClick();
     }
 
     #region __CALLBACKS__
@@ -95,7 +96,7 @@ public class PlaySceneManager : MonoBehaviour
                 float latitude = GameManager.instance.latitude - float.Parse(postPos[1]);
                 // if (Math.Abs(longitude) <= 0.001 && Math.Abs(latitude) <= 0.001)
                 {
-                    Vector3 genPos = new Vector3(Random.Range(-0.5f, 1.0f), Random.Range(-0.5f, 1.0f), Random.Range(0.5f, 1.0f));
+                    Vector3 genPos = new Vector3(Random.Range(-0.5f, 1.0f), Random.Range(0.0f, 1.0f), Random.Range(0.5f, 1.0f));
                     print("Create");
                     Instantiate(postPrefab, genPos, Quaternion.identity);
                 }
