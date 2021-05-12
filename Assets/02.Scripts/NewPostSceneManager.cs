@@ -25,9 +25,9 @@ public class NewPostSceneManager : MonoBehaviour
         Dictionary<string, object> update = new Dictionary<string, object>();
         string path = postKey + "/";
 
+        update[path + "id"] = GameManager.instance.userIdentifier;
         update[path + "userName"] = GameManager.instance.userName;
         update[path + "userPW"] = GameManager.instance.userPW;
-        update[path + "id"] = GameManager.instance.userIdentifier;
         update[path + "createTime"] = createTime;
         update[path + "message"] = message;
         update[path + "userPos"] = userPos;
