@@ -500,6 +500,7 @@ GameObject:
   m_Component:
   - component: {fileID: 426711350}
   - component: {fileID: 426711351}
+  - component: {fileID: 426711352}
   m_Layer: 0
   m_Name: PlaySceneManager
   m_TagString: Untagged
@@ -534,7 +535,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   userName: {fileID: 1079489397}
-  postPrefab: {fileID: 1784506450282244919, guid: 992a5c2836fc7f44f986b94836c90bc6, type: 3}
+  postPrefab: {fileID: 8244024335545191189, guid: f4ce11c3312224e4ab01b119a6d9399f, type: 3}
+--- !u!114 &426711352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426711349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de7272fa955248a40979d2601bf62b42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &463168165
 GameObject:
   m_ObjectHideFlags: 0

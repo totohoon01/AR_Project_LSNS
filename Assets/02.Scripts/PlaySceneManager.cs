@@ -17,6 +17,7 @@ public class PlaySceneManager : MonoBehaviour
     private DataSnapshot snapshot;
     private bool isLoaded = false;
 
+
     void Start()
     {
         //필요한 컴포넌트 연결
@@ -24,7 +25,7 @@ public class PlaySceneManager : MonoBehaviour
 
         //현재 사용자 표시
         userName.text = $"Name: {GameManager.instance.userName}";
-        OnRefreshButtonClick();
+        // OnRefreshButtonClick();
     }
 
     #region __CALLBACKS__
@@ -51,6 +52,20 @@ public class PlaySceneManager : MonoBehaviour
 
     public void OnRefreshButtonClick()
     {
+        //리프레쉬하면 기존 더미 삭제.
+        GameObject[] dummys = GameObject.FindGameObjectsWithTag("DUMMY");
+        foreach (var dummy in dummys)
+        {
+            Destroy(dummy);
+        }
+
+        //위치 값 초기화
+        GameObject[] reset = GameObject.FindGameObjectsWithTag("DESTROY");
+        foreach (var dummy in reset)
+        {
+            dummy.transform.position = Vector3.zero;
+        }
+
         print("Call");
         LoadDataFromFirebase();
         StartCoroutine(CheckLoaded());
@@ -92,8 +107,13 @@ public class PlaySceneManager : MonoBehaviour
             if (postData["userPos"] != null)
             {
                 string[] postPos = postData["userPos"].ToString().Split(',');
-                float longitude = GameManager.instance.logitude - float.Parse(postPos[0]);
-                float latitude = GameManager.instance.latitude - float.Parse(postPos[1]);
+                // Debug.Log($"{postPos[0]},{postPos[1]}");
+                float postN = 0;
+                float postE = 0;
+                float.TryParse(postPos[0], out postN);
+                float.TryParse(postPos[0], out postE);
+                float longitude = GameManager.instance.logitude - postN;
+                float latitude = GameManager.instance.latitude - postE;
                 // if (Math.Abs(longitude) <= 0.001 && Math.Abs(latitude) <= 0.001)
                 {
                     Vector3 genPos = new Vector3(Random.Range(-0.5f, 1.0f), Random.Range(0.0f, 1.0f), Random.Range(0.5f, 1.0f));

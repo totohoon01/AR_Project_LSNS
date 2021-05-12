@@ -52,3 +52,6 @@
 ### Else
 - [ ] Extras(ripple🐳 / Like👍)
 - [ ] Cloud Anchor
+
+박스에 터치하면 올드포스트씬 연결 로딩,
+컨텐츠 내용 연결!
