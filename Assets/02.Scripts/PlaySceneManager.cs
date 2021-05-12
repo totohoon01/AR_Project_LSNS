@@ -95,7 +95,7 @@ public class PlaySceneManager : MonoBehaviour
                 float latitude = GameManager.instance.latitude - float.Parse(postPos[1]);
                 // if (Math.Abs(longitude) <= 0.001 && Math.Abs(latitude) <= 0.001)
                 {
-                    Vector3 genPos = new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f), Random.Range(0.0f, 0.5f));
+                    Vector3 genPos = new Vector3(Random.Range(-0.5f, 1.0f), Random.Range(-0.5f, 1.0f), Random.Range(0.5f, 1.0f));
                     print("Create");
                     Instantiate(postPrefab, genPos, Quaternion.identity);
                 }
