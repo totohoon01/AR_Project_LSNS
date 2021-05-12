@@ -18,8 +18,8 @@ public class OldPostSceneManager : MonoBehaviour
     public TMP_Text textAlret;
 
     private DatabaseReference mRef;
-
-    private string hashCode = "--M_PfLP-3xRLOJ4iE0hd";
+    private DataSnapshot snapshot;
+    private bool isLoaded = false;
 
     void Awake()
     {
@@ -28,7 +28,8 @@ public class OldPostSceneManager : MonoBehaviour
     void Start()
     {
         //특정한 해쉬를 가진?? 데이터 로드
-        ReadContents(hashCode);
+        ReadContents(GameManager.instance.hashCode);
+        StartCoroutine(CheckLoaded());
     }
 
     void ReadContents(string hashCode)
@@ -37,34 +38,50 @@ public class OldPostSceneManager : MonoBehaviour
         {
             if (task.IsCompleted)
             {
-                DataSnapshot snapshot = task.Result;
-                foreach (var data in snapshot.Children)
-                {
-                    if (hashCode == data.Key)
-                    {
-                        //유니티에서는 안되는데 빌드하면 됨
-                        //약간 불러오는 딜레이있는듯. 최종본에 디폴트 제거, 한글처리
-                        IDictionary postData = (IDictionary)data.Value;
-                        postAuthor.text = $"Author: {postData["userName"].ToString()}";
-                        createTime.text = postData["createTime"].ToString();
-                        postContent.text = postData["message"].ToString();
-                        break;
-                    }
-                }
+                snapshot = task.Result;
+                isLoaded = true;
             }
+
         });
+    }
+    IEnumerator CheckLoaded()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(1.0f);
+            if (isLoaded)
+            {
+                DisplayPost();
+                yield break;
+            }
+        }
+    }
+    void DisplayPost()
+    {
+        foreach (var data in snapshot.Children)
+        {
+            if (GameManager.instance.hashCode == data.Key)
+            {
+                //유니티에서는 안되는데 빌드하면 됨
+                //약간 불러오는 딜레이있는듯. 최종본에 디폴트 제거, 한글처리
+                IDictionary postData = (IDictionary)data.Value;
+                postAuthor.text = $"Author: {postData["userName"].ToString()}";
+                createTime.text = postData["createTime"].ToString();
+                postContent.text = postData["message"].ToString();
+                break;
+            }
+        }
     }
 
     public void OnDeleteButtonClick()
     {
-        DeletePost(hashCode);
+        DeletePost(GameManager.instance.hashCode);
     }
-    //유저 확인 로직 추가 ㅓㅓㅓㅓ
     void DeletePost(string hashCode)
     {
         if (GameManager.instance.userIdentifier == postAuthor.text)
         {
-            mRef.Child(hashCode).RemoveValueAsync();
+            mRef.Child(GameManager.instance.hashCode).RemoveValueAsync();
             SceneManager.LoadScene("02.PlayScene");
         }
         else
@@ -82,19 +99,4 @@ public class OldPostSceneManager : MonoBehaviour
     {
         SceneManager.LoadScene("02.PlayScene");
     }
-
-    // public void OnModifyButtonClick()
-    // {
-    //     //수정버튼(삭제할수도)
-    // }
-
-    // public void OnHideButtonClick()
-    // {
-    //     //현재 사용자 != 작성자 -> 해쉬값을 받아서 해당 포스트 혹은 해당 사용자 블록
-    //     //해쉬 값을 받아서, 특정 사용자에게 블록
-    //     //if curUser in post.hideTo()
-    //     //  not Generate this
-    // }
-
-
 }

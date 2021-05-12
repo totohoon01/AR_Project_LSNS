@@ -15,6 +15,9 @@ public class GameManager : MonoBehaviour
     public float logitude;
     private LocationInfo userPos;
 
+    //지금 읽을 오브젝트 정보
+    public string hashCode;
+
     void Awake()
     {
         if (instance == null)

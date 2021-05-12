@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RayTouch : MonoBehaviour
 {
@@ -19,8 +20,15 @@ public class RayTouch : MonoBehaviour
             if (Physics.Raycast(ray, out hit, 10.0f, 1 << 6))
             {
                 if (Input.GetMouseButtonDown(0))
-                    Destroy(hit.transform.gameObject);
+                {
+                    GameManager.instance.hashCode = hit.transform.GetComponent<PrefabGenerator>().hashCode;
+                    OnOldPostClick();
+                }
             }
         }
+    }
+    void OnOldPostClick()
+    {
+        SceneManager.LoadScene("03.OldPostScene");
     }
 }

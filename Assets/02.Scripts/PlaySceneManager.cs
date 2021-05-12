@@ -29,10 +29,7 @@ public class PlaySceneManager : MonoBehaviour
     }
 
     #region __CALLBACKS__
-    public void OnOldPostClick()
-    {
-        SceneManager.LoadScene("03.OldPostScene");
-    }
+
 
     public void OnNewPostButtonClick()
     {
