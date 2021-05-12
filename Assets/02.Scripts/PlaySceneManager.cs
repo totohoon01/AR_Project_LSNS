@@ -118,7 +118,10 @@ public class PlaySceneManager : MonoBehaviour
                 {
                     Vector3 genPos = new Vector3(Random.Range(-0.5f, 1.0f), Random.Range(0.0f, 1.0f), Random.Range(0.5f, 1.0f));
                     print("Create");
-                    Instantiate(postPrefab, genPos, Quaternion.identity);
+                    GameObject obj = Instantiate(postPrefab, genPos, Quaternion.identity);
+                    obj.GetComponent<PrefabGenerator>().hashCode = data.Key;
+                    obj.GetComponent<PrefabGenerator>().authorName = postData["userName"].ToString();
+                    obj.GetComponent<PrefabGenerator>().createTime = postData["createTime"].ToString();
                 }
             }
         }
