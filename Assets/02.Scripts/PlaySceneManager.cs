@@ -54,11 +54,9 @@ public class PlaySceneManager : MonoBehaviour
         }
 
         //위치 값 초기화
-        GameObject[] reset = GameObject.FindGameObjectsWithTag("DESTROY");
-        foreach (var dummy in reset)
-        {
-            dummy.transform.position = Vector3.zero;
-        }
+        print(Camera.main.transform.position);
+        Camera.main.transform.position = Vector3.zero;
+        print(Camera.main.transform.position);
 
         print("Call");
         LoadDataFromFirebase();
@@ -101,7 +99,6 @@ public class PlaySceneManager : MonoBehaviour
             if (postData["userPos"] != null)
             {
                 string[] postPos = postData["userPos"].ToString().Split(',');
-                // Debug.Log($"{postPos[0]},{postPos[1]}");
                 float postN = 0;
                 float postE = 0;
                 float.TryParse(postPos[0], out postN);
