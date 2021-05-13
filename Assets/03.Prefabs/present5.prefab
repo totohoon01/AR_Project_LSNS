@@ -355,6 +355,7 @@ GameObject:
   - component: {fileID: 7887247553306758917}
   - component: {fileID: 7887247553302593803}
   - component: {fileID: 7887247553304925245}
+  - component: {fileID: 2347518405447403991}
   m_Layer: 6
   m_Name: present5
   m_TagString: DUMMY
@@ -458,3 +459,15 @@ MonoBehaviour:
   createTime: 
   authorNameText: {fileID: 773048077}
   creteTimeText: {fileID: 808863642}
+--- !u!114 &2347518405447403991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7887247553304853255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3dac76785904b34797922b81ead216c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

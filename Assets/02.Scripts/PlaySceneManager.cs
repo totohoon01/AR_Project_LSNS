@@ -104,6 +104,8 @@ public class PlaySceneManager : MonoBehaviour
                 {
                     Vector3 genPos = new Vector3(Random.Range(-0.5f, 1.0f), Random.Range(0.0f, 0.5f), Random.Range(0.5f, 1.0f));
                     print("Create");
+
+                    //프리팹 생성
                     int index = Random.Range(0, 5);
                     GameObject obj = Instantiate(postPrefab[index], Camera.main.transform.position + genPos, Quaternion.LookRotation(Vector3.zero));
 
