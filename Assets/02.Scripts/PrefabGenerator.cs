@@ -11,4 +11,5 @@ public class PrefabGenerator : MonoBehaviour
 
     public TMP_Text authorNameText;
     public TMP_Text creteTimeText;
+    public TMP_Text message;
 }

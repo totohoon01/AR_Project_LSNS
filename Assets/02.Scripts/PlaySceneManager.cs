@@ -8,7 +8,7 @@ public class PlaySceneManager : MonoBehaviour
 {
     //information
     public TMP_Text userName;
-    public GameObject[] postPrefab;
+    public GameObject postPrefab;
 
     private DatabaseReference mRef;
     private DataSnapshot snapshot;
@@ -26,8 +26,6 @@ public class PlaySceneManager : MonoBehaviour
     }
 
     #region __CALLBACKS__
-
-
     public void OnNewPostButtonClick()
     {
         SceneManager.LoadScene("04.NewPostScene");
@@ -102,12 +100,14 @@ public class PlaySceneManager : MonoBehaviour
                 float latitude = GameManager.instance.latitude - postE;
                 // if (Math.Abs(longitude) <= 0.001 && Math.Abs(latitude) <= 0.001)
                 {
-                    Vector3 genPos = new Vector3(Random.Range(-0.5f, 1.0f), Random.Range(0.0f, 0.5f), Random.Range(0.5f, 1.0f));
+                    Vector3 genPos = new Vector3(Random.Range(-2.5f, 2.5f), Random.Range(0.0f, 1.0f), Random.Range(-2.5f, 2.5f));
                     print("Create");
 
                     //프리팹 생성
-                    int index = Random.Range(0, 5);
-                    GameObject obj = Instantiate(postPrefab[index], Camera.main.transform.position + genPos, Quaternion.LookRotation(Vector3.zero));
+                    // int index = Random.Range(0, 5);
+                    GameObject obj = Instantiate(postPrefab, Camera.main.transform.position + genPos, Quaternion.identity);
+                    Vector3 rot = new Vector3(Camera.main.transform.position.x, obj.transform.position.y, Camera.main.transform.position.z);
+                    obj.transform.LookAt(rot);
 
                     //프리팹에 정보 기록
                     obj.GetComponent<PrefabGenerator>().hashCode = data.Key;
@@ -117,6 +117,7 @@ public class PlaySceneManager : MonoBehaviour
                     //프리팹 위아래 텍스트
                     obj.GetComponent<PrefabGenerator>().authorNameText.text = obj.GetComponent<PrefabGenerator>().authorName;
                     obj.GetComponent<PrefabGenerator>().creteTimeText.text = obj.GetComponent<PrefabGenerator>().createTime;
+                    obj.GetComponent<PrefabGenerator>().message.text = postData["message"].ToString();
                 }
             }
         }
