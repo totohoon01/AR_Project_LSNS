@@ -53,11 +53,6 @@ public class PlaySceneManager : MonoBehaviour
             Destroy(dummy);
         }
 
-        //위치 값 초기화
-        print(Camera.main.transform.position);
-        Camera.main.transform.position = Vector3.zero;
-        print(Camera.main.transform.position);
-
         print("Call");
         LoadDataFromFirebase();
         StartCoroutine(CheckLoaded());
@@ -107,15 +102,17 @@ public class PlaySceneManager : MonoBehaviour
                 float latitude = GameManager.instance.latitude - postE;
                 // if (Math.Abs(longitude) <= 0.001 && Math.Abs(latitude) <= 0.001)
                 {
-                    Vector3 genPos = new Vector3(Random.Range(-0.5f, 1.0f), Random.Range(0.0f, 1.0f), Random.Range(0.5f, 1.0f));
+                    Vector3 genPos = new Vector3(Random.Range(-0.5f, 1.0f), Random.Range(0.0f, 0.5f), Random.Range(0.5f, 1.0f));
                     print("Create");
                     int index = Random.Range(0, 5);
-                    GameObject obj = Instantiate(postPrefab[index], genPos, Quaternion.identity);
+                    GameObject obj = Instantiate(postPrefab[index], Camera.main.transform.position + genPos, Quaternion.LookRotation(Vector3.zero));
+
+                    //프리팹에 정보 기록
                     obj.GetComponent<PrefabGenerator>().hashCode = data.Key;
                     obj.GetComponent<PrefabGenerator>().authorName = postData["userName"].ToString();
                     obj.GetComponent<PrefabGenerator>().createTime = postData["createTime"].ToString();
 
-                    //여기다가 저장하면 되겠다.
+                    //프리팹 위아래 텍스트
                     obj.GetComponent<PrefabGenerator>().authorNameText.text = obj.GetComponent<PrefabGenerator>().authorName;
                     obj.GetComponent<PrefabGenerator>().creteTimeText.text = obj.GetComponent<PrefabGenerator>().createTime;
                 }
