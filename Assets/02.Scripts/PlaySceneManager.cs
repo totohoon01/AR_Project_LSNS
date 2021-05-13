@@ -4,14 +4,11 @@ using UnityEngine.SceneManagement;
 using TMPro;
 using Firebase.Database;
 
-using System.Threading;
-using System.Threading.Tasks;
-
 public class PlaySceneManager : MonoBehaviour
 {
     //information
     public TMP_Text userName;
-    public GameObject postPrefab;
+    public GameObject[] postPrefab;
 
     private DatabaseReference mRef;
     private DataSnapshot snapshot;
@@ -115,7 +112,8 @@ public class PlaySceneManager : MonoBehaviour
                 {
                     Vector3 genPos = new Vector3(Random.Range(-0.5f, 1.0f), Random.Range(0.0f, 1.0f), Random.Range(0.5f, 1.0f));
                     print("Create");
-                    GameObject obj = Instantiate(postPrefab, genPos, Quaternion.identity);
+                    int index = Random.Range(0, 5);
+                    GameObject obj = Instantiate(postPrefab[index], genPos, Quaternion.identity);
                     obj.GetComponent<PrefabGenerator>().hashCode = data.Key;
                     obj.GetComponent<PrefabGenerator>().authorName = postData["userName"].ToString();
                     obj.GetComponent<PrefabGenerator>().createTime = postData["createTime"].ToString();
