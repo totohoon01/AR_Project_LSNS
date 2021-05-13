@@ -31,15 +31,13 @@
 ### ❓ Check How to
 - Cloud Anchor
 
-
 ## ✔ 진행 사항(To do) 
 - [ ] 디자인
 
 ### MainScene
 
 ### PlayScene
-- [ ] Cloud Anchor 연결, anchor + gps로 id구분
-- [ ] GPS 값 받아서 주변에 기존 포스트 표시
+- [x] GPS 값 받아서 주변에 기존 포스트 표시
 
 ### OldPostScene
 - [x] DB에서 내용 불러오기(작성자, 작성시간-간단히-, 내용)
@@ -53,5 +51,8 @@
 - [ ] Extras(ripple🐳 / Like👍)
 - [ ] Cloud Anchor
 
-박스에 터치하면 올드포스트씬 연결 로딩,
-컨텐츠 내용 연결!
+### Today's To do!
+- [ ] 프리팹 에셋 적용
+- [ ] 프리팹에 작성자 이름, 작성일시 표시, 가능하면 내용일부도?
+- [ ] 한글 및 영어 폰트
+- [ ] 코드 정리
