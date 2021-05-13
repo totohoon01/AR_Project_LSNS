@@ -2237,6 +2237,7 @@ MonoBehaviour:
   userIdentifier: 
   latitude: 0
   logitude: 0
+  hashCode: 
 --- !u!1 &1572942778
 GameObject:
   m_ObjectHideFlags: 0

@@ -117,6 +117,10 @@ public class PlaySceneManager : MonoBehaviour
                     obj.GetComponent<PrefabGenerator>().hashCode = data.Key;
                     obj.GetComponent<PrefabGenerator>().authorName = postData["userName"].ToString();
                     obj.GetComponent<PrefabGenerator>().createTime = postData["createTime"].ToString();
+
+                    //여기다가 저장하면 되겠다.
+                    obj.GetComponent<PrefabGenerator>().authorNameText.text = obj.GetComponent<PrefabGenerator>().authorName;
+                    obj.GetComponent<PrefabGenerator>().creteTimeText.text = obj.GetComponent<PrefabGenerator>().createTime;
                 }
             }
         }
