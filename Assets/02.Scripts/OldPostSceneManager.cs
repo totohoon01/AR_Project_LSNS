@@ -7,15 +7,14 @@ using TMPro;
 using Firebase.Database;
 public class OldPostSceneManager : MonoBehaviour
 {
-    //특정 위치의 포스트 정보를 가져온다.
-    //작성자, 작성시간, 작성내용 표시
-    //버튼을 눌렀을 때 현재 사용자와 비교.
-
-    // DB에 있는 특정 자료와 프리팹을 어떻게 연결할 것인가??
+    //게임뷰에 보이는 컨텐츠
     public TMP_Text postAuthor;
     public TMP_Text createTime;
     public TMP_Text postContent;
     public TMP_Text textAlret;
+
+    //유저확인
+    private string userId;
 
     private DatabaseReference mRef;
     private DataSnapshot snapshot;
@@ -68,6 +67,7 @@ public class OldPostSceneManager : MonoBehaviour
                 postAuthor.text = $"Author: {postData["userName"].ToString()}";
                 createTime.text = postData["createTime"].ToString();
                 postContent.text = postData["message"].ToString();
+                userId = postData["id"].ToString();
                 break;
             }
         }
@@ -79,7 +79,7 @@ public class OldPostSceneManager : MonoBehaviour
     }
     void DeletePost(string hashCode)
     {
-        if (GameManager.instance.userIdentifier == postAuthor.text)
+        if (GameManager.instance.userIdentifier == userId)
         {
             mRef.Child(GameManager.instance.hashCode).RemoveValueAsync();
             SceneManager.LoadScene("02.PlayScene");
