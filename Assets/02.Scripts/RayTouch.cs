@@ -22,6 +22,7 @@ public class RayTouch : MonoBehaviour
                 if (Input.GetMouseButtonDown(0))
                 {
                     GameManager.instance.hashCode = hit.transform.GetComponent<PrefabGenerator>().hashCode;
+                    Destroy(hit.collider.GetComponent<BoxCollider>());
                     OnOldPostClick();
                 }
             }
