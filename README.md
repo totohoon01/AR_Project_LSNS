@@ -10,4 +10,12 @@
 - [x] 글자색 홀짝구분(약간 차이나게)
 - [x] 데이터 정해진 갯수안에서 랜덤하게 픽(ex 10개 다차면 그만찾아)
 
-292727
+### 동작 예시
+![exp](./myimages/1.main_camoff.jpg)
+![exp](./myimages/2.main_camOn.jpg)
+![exp](./myimages/3.play.jpg)
+![exp](./myimages/4.newPost.jpg)
+![exp](./myimages/5.Play1.jpg)
+![exp](./myimages/5.Play2.jpg)
+![exp](./myimages/6.OldPost.jpg)
+![exp](./myimages/6-1.Delete.jpg)
